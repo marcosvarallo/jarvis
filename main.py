@@ -1,14 +1,15 @@
 from intent_router import detect_intention
 from ai_core import generate_ia_response
 from services import agenda, email, music
+from speech_output import speak
 
 def main():
-    print("Hi, I'm JARVIS. How can I help?")
+    print("Hi, I'm FRIDAY. How can I help?")
     while True:
         entry = input("You: ")
 
         if entry.lower() in ["sair", "exit", "quit"]:
-            print("JARVIS: See you later!")
+            print("FRIDAY: See you later!")
             break
 
         tipo, dados = detect_intention(entry)
@@ -24,7 +25,8 @@ def main():
         else:
             response = "Sorry, I didn't understand that."
 
-        print(f"JARVIS: {response}")
+        print(f"FRIDAY: {response}")
+        speak(response)
 
 if __name__ == "__main__":
     main()
